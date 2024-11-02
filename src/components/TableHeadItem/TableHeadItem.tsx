@@ -1,7 +1,8 @@
 import { FC, useContext, useState } from 'react';
 import { Col } from '../../types/types';
 import styles from './styles.module.scss';
-import img from '../../assets/img/add.png';
+import add_img from '../../assets/img/add.png';
+import del_img from '../../assets/img/cross.png';
 import { TableContext } from '../Table/Table';
 
 interface TableHeadItemProps {
@@ -27,6 +28,32 @@ const TableHeadItem: FC<TableHeadItemProps> = ({col}) => {
         setRows(rowsCopy);
 
         setSize([ size[0] + 1, size[1] ]);
+    };
+
+    const delCol = () => {
+        let colsCopy = structuredClone(cols);
+
+        for ( let i = 0; i < colsCopy.length; i++ ) {
+            if ( colsCopy[i].id === col.id ) {
+                colsCopy.splice(i, 1);
+                break;
+            }
+        }
+
+        setCols(colsCopy);
+
+        let size1 = size[0] - 1;
+        let size2 = size[1];
+        if (size1 < 0) { size1 = 0; }
+        if (size1 === 0) { size2 = 0; }
+
+        setSize([ size1, size2 ]);
+
+        let rowsCopy = structuredClone(rows);
+        rowsCopy.map( ( row:any ) => 
+            row.cells = row.cells.slice(0, size1)
+        );
+        setRows(rowsCopy);
     };
 
     const updateValue = ( val : string ) => {
@@ -56,10 +83,20 @@ const TableHeadItem: FC<TableHeadItemProps> = ({col}) => {
     const addBtn = hover ?
         <button
             onClick={addCol}
-            className={styles.btn}
+            className={styles.btn_add}
             title="Добавить колонку"
         >
-            <img src={img} />
+            <img src={add_img} />
+        </button>
+        : null;
+
+    const delBtn = hover ?
+        <button
+            onClick={delCol}
+            className={styles.btn_del}
+            title="Удалить колонку"
+        >
+            <img src={del_img} />
         </button>
         : null;
 
@@ -75,7 +112,7 @@ const TableHeadItem: FC<TableHeadItemProps> = ({col}) => {
             onMouseLeave={mouseLeave}
             className={styles.head}
             scope="col"
-        ><input className={styles.text} type="text" value={value} onChange={(e) => { updateValue(e.target.value) }}></input>{headType}{addBtn}</th>
+        ><input className={styles.text} type="text" value={value} onChange={(e) => { updateValue(e.target.value) }}></input>{headType}{addBtn}{delBtn}</th>
     );
 };
 

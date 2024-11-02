@@ -6,6 +6,7 @@
     }
 
     .text {
+        display: block;
         background: transparent;
         font-family: 'Roboto', sans-serif;
         font-size: 16px;
@@ -21,16 +22,29 @@
         }
     }
 
-    .btn {
+    .btn_add {
         cursor: pointer;
         position: absolute;
         background: transparent;
         border: none;
         margin-left: 10px;
-        margin-top: -3px;
+        margin-top: -8px;
     }
 
-    .btn img {
+    .btn_add img {
         max-width: 25px;
+    }
+
+    .btn_del {
+        cursor: pointer;
+        position: absolute;
+        background: transparent;
+        border: none;
+        margin-left: 40px;
+        margin-top: -10px;
+    }
+
+    .btn_del img {
+        max-width: 28px;
     }
 }
