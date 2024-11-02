@@ -1,0 +1,15 @@
+$h1_size: 57px;
+$h2_size: 28px;
+
+.hat {
+    display: flex;
+    justify-content: space-between;
+
+    h1 {
+        font-size: $h1_size;
+    }
+    
+    h2 {
+        font-size: $h2_size;
+    }
+}

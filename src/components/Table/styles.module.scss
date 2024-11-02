@@ -1,0 +1,22 @@
+.controls {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.table {
+    margin-top: 24px;
+    width: 100%;
+    text-align: left;
+
+    th, td {
+        height: 40px;
+        padding: 0 10px;
+        border-bottom: 1px lightgray solid;
+    }
+    
+    th {
+        font-weight: normal;
+        color: gray;
+    }
+}

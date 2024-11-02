@@ -1,0 +1,19 @@
+$font-stack: 'Roboto', sans-serif;
+$back-color: #F2F2F7;
+
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto'), url(./assets/fonts/Roboto_Regular.ttf) format('truetype');
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $back-color;
+    font-family: $font-stack;
+    padding: 48px 64px 48px 64px;
+}

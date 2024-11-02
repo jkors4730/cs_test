@@ -1,0 +1,36 @@
+.head {
+    background-color: transparent;
+
+    &:hover {
+        background-color: lightgray;
+    }
+
+    .text {
+        background: transparent;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        color: gray;
+        border: oldlace;
+
+        &:hover {
+            outline: none;
+        }
+
+        &:focus-visible {
+            outline: none;
+        }
+    }
+
+    .btn {
+        cursor: pointer;
+        position: absolute;
+        background: transparent;
+        border: none;
+        margin-left: 10px;
+        margin-top: -3px;
+    }
+
+    .btn img {
+        max-width: 25px;
+    }
+}
